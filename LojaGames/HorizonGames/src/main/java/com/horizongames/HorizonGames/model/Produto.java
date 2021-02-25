@@ -5,14 +5,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
-@Table(name = "tb_habilidade")
 public class Produto {
 	
 	@Id
@@ -23,7 +21,13 @@ public class Produto {
 	@Size(min = 50, max = 100)
 	private String descricao;
 	
+	@NotNull
+	private float preco;
 	
+	public void setCategoria(Categoria categoria) {
+		this.categoria = categoria;
+	}
+
 	@ManyToOne // varios produtos podem ter uma categoria
 	@JsonIgnoreProperties("categoria")
 	private Categoria categoria;
@@ -43,6 +47,17 @@ public class Produto {
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
+	
+	public float getPreco() {
+		return preco;
+	}
 
+	public void setPreco(float preco) {
+		this.preco = preco;
+	}
+
+	public Categoria getCategoria() {
+		return categoria;
+	}
 	
 }

@@ -10,4 +10,6 @@ import com.horizongames.HorizonGames.model.Categoria;
 @Repository
 public interface CategoriaRepository extends JpaRepository<Categoria, Long>{
 	public List<Categoria> findAllByPersonagemContainingIgnoreCase(String personagem);
+	public List<Categoria> findAllByNomeContainingIgnoreCase(String nome);
+	
 }

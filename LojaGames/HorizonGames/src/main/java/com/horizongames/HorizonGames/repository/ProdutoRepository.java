@@ -8,5 +8,5 @@ import com.horizongames.HorizonGames.model.Produto;
 
 public interface ProdutoRepository extends JpaRepository<Produto, Long>{
 	public List<Produto> findAllByDescricaoContainingIgnoreCase(String descricao);// essa descricao vem da classe produto
-
+	
 }
