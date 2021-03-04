@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.generation.blogPessoal.model.Tema;
 import org.generation.blogPessoal.repository.TemaRepository;
 
@@ -43,13 +45,13 @@ public class TemaController {
 	}
 	
 	@PostMapping
-	public ResponseEntity<Tema> Post (@RequestBody Tema tema){
+	public ResponseEntity<Tema> Post (@Valid @RequestBody Tema tema){
 		return ResponseEntity.status(HttpStatus.CREATED)
 				.body(repository.save(tema));
 	}
 
 	@PutMapping
-	public ResponseEntity<Tema> Put (@RequestBody Tema tema){
+	public ResponseEntity<Tema> Put (@Valid @RequestBody Tema tema){
 		return ResponseEntity.ok(repository.save(tema));
 	}
 	
