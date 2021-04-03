@@ -29,7 +29,7 @@ public class PostagemController {
 	@Autowired  // Permite que todos serviços dessa interface sejam acessadas a partir do controller
 	private PostagemRepository repository;
 	
-	@GetMapping() // Se o método da requisição externa for o GET, ele vai disparar esse método abaixo
+	@GetMapping // Se o método da requisição externa for o GET, ele vai disparar esse método abaixo
 	public ResponseEntity<List<Postagem>> GetAll(){
 		return ResponseEntity.ok(repository.findAll());
 	}
